@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Harashta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.batikprabuseno.com/artikel/wp-content/uploads/2024/06/Makna-Motif-Batik-Gunungan-Motif-Batik-Klasik-Indonesia.png'); /* Ganti dengan gambar batik yang diinginkan */
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        /* Gaya untuk pembatas atas dan bawah */
+        .section-divider {
+            border-top: 2px solid #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            margin: 30px 0;
+            padding: 20px 0;
+        }
+
+        /* Overlay yang memberikan efek putih transparan */
+        .content-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            text-align: center;
+        }
+
+        /* Gaya untuk header */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Gaya untuk menu navigasi */
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Gaya untuk konten */
+        section {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        /* Gaya untuk foto profil */
+        .profile-pic {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-pic img {
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Gaya untuk galeri */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border: 2px solid #4CAF50;
+        }
+
+        /* Gaya untuk kolom komentar */
+        .comment-box {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .comment-box textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        .comment-box input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .comment-box input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Gaya untuk menampilkan komentar di bawah */
+        .comments-display 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .comment-section {
+            width: 60%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .input-box {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .comment-display {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ccc;
+        }
+        .comment-item {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+        }
+        .comment-author {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+            
+
+        /* Gaya untuk kontak */
+        .contact-info {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .contact-info p {
+            margin: 0;
+        }
+
+        .contact-info a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Gaya untuk footer */
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    <script>
+        function tambahKomentar(event) {
+            event.preventDefault(); // Mencegah reload halaman
+
+            // Ambil nilai komentar dari textarea
+            var komentar = document.getElementById('komentar').value;
+
+            // Buat elemen div baru untuk menampilkan komentar
+            var newComment = document.createElement('div');
+            newComment.className = 'comments-display';
+            newComment.innerHTML = '<p>' + komentar + '</p>';
+
+            // Tambahkan elemen komentar ke bawah form
+            document.getElementById('komentarList').appendChild(newComment);
+
+            // Kosongkan textarea setelah mengirim komentar
+            document.getElementById('komentar').value = '';
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Bagian Header -->
+
+    <header>
+        <h1 id="0">Biodata Harashta</h1>
+    </header>
+
+    <!-- Bagian Menu Navigasi -->
+    <nav>
+        <a href="#beranda">Beranda</a>
+        <a href="#biodata">Biodata</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#komentar">Komentar</a>
+        <a href="#kontak">Hubungi Saya</a>
+
+    </nav>
+
+    <!-- Konten Utama dengan kotak sekat putih transparan -->
+    <div class="content-box">
+        <!-- Bagian Beranda -->
+        <section id="beranda" class="section-divider">
+            <h2>Beranda</h2>
+            <p>Selamat datang di website Biodata Harashta. Di sini Anda bisa mengetahui lebih lanjut tentang biodata Puteri Indonesia sekaligus Miss Supranational yaitu Harashta Haifa Zahra</p>
+        </section>
+
+        <!-- Bagian Biodata dengan foto profil -->
+        <section id="biodata" class="section-divider">
+            <h2>Biodata Harashta</h2>
+            <div class="profile-pic">
+                <img src="https://image.tienphong.vn/w1966/Uploaded/2024/jaetgs/2024_07_01/445381270-18436828414063017-8415899974430381618-n-7773.jpg" alt="Foto Harashta"> <!-- Ganti dengan foto profil Harashta -->
+            </div>
+            <p>Nama: Harashta Haifa Zahra</p>
+            <p>Tanggal Lahir: 1 Januari 1990</p>
+            <p>Profesi: Pejuang Hak Asasi Manusia</p>
+            <p>Biografi Singkat: Harashta adalah seorang aktivis yang telah berjuang selama lebih dari 10 tahun untuk keadilan sosial dan hak asasi manusia. Ia berdedikasi pada berbagai gerakan sosial yang bertujuan untuk menciptakan kesetaraan dan kebebasan bagi semua.</p>
+            <p>Baca sejarah Harashta Haifa Zahra di <a href="https://id.wikipedia.org/wiki/Harashta_Haifa_Zahra" target="_blank">sini</a>.</p>
+        </section>
+        <a href="#0">Kembali</a>
+
+       
+        
+        <!-- Bagian Galeri -->
+        <section id="galeri" class="section-divider">
+            <h2>Galeri</h2>
+            <div class="gallery">
+                <img src="https://www.herworld.co.id/gallery/images/Screen_Shot_2024-07-08_at_15.16.25_11zon.jpg" alt="Foto 1">
+                <img src="https://www.blibli.com/friends-backend/wp-content/uploads/2024/07/B160388-3-Puteri-Indonesia-2024-1024x538.jpg" alt="Foto 2">
+                <img src="https://tangselxpress.com/wp-content/uploads/2024/07/harashta-haifa-zahra.jpg" alt="Foto 3">
+                <img src="https://akcdn.detik.net.id/community/media/visual/2024/07/05/puteri-indonesia-2024-harashta-haifa-zahra-berhasil-meraih-penghargaan-sebagai-finalis-paling-berbakat-di-kontes-miss-supranat-1.jpeg?w=770&q=90" alt="Foto 4">
+                <img src="https://static.promediateknologi.id/crop/58x2:1011x604/0x0/webp/photo/p2/119/2024/03/11/Snapinstaapp_431950934_1170167580819287_8448700256325716398_n_1080-1705922144.jpg" alt="Foto 4">
+                <img src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/45/2024/07/07/Harasta-Haifa-Zahra-Puteri-Indonesia-2024-yang-menjadi-Miss-Supranational-2024-di-Polandia-instagram-harashtata-4047896980.jpg" alt="Foto 4">
+                <img src="https://statik.tempo.co/data/2024/03/09/id_1285973/1285973_720.jpg" alt="Foto 4">
+                <img src="https://asset-2.tstatic.net/tribunjabarwiki/foto/bank/images/Harashta-Haifa-1.jpg" alt="Foto 4">
+            </div>
+        </section> 
+        <a href="#0">Kembali</a>
+
+        <!-- Kolom Komentar -->
+        <section id="komentar" class="section-divider">
+    <div class="comment-section">
+        <h2>Bagian Komentar</h2>
+        
+        <!-- Input untuk nama -->
+        <input type="text" id="nameBox" class="input-box" placeholder="Nama Anda...">
+        
+        <!-- Input untuk email -->
+        <input type="email" id="emailBox" class="input-box" placeholder="Email Anda...">
+        
+        <!-- Kotak untuk komentar -->
+        <textarea id="commentBox" class="input-box" placeholder="Tulis komentar Anda..."></textarea>
+        
+        <!-- Tombol untuk kirim komentar -->
+        <button class="submit-btn" onclick="submitComment()">Kirim Komentar</button>
+        
+        <!-- Bagian untuk menampilkan komentar -->
+        <div class="comment-display" id="commentDisplay">
+            <h3>Komentar:</h3>
+        </div>
+    </div>
+
+    <script>
+        function submitComment() {
+            // Ambil nilai dari kotak input
+            var nameBox = document.getElementById('nameBox');
+            var emailBox = document.getElementById('emailBox');
+            var commentBox = document.getElementById('commentBox');
+            var commentDisplay = document.getElementById('commentDisplay');
+
+            var name = nameBox.value.trim();
+            var email = emailBox.value.trim();
+            var comment = commentBox.value.trim();
+
+            // Validasi input tidak boleh kosong
+            if (name === "" || email === "" || comment === "") {
+                alert("Nama, email, dan komentar tidak boleh kosong!");
+                return;
+            }
+
+            // Membuat elemen div baru untuk komentar
+            var newComment = document.createElement('div');
+            newComment.classList.add('comment-item');
+
+            // Membuat elemen untuk nama
+            var commentAuthor = document.createElement('div');
+            commentAuthor.classList.add('comment-author');
+            commentAuthor.textContent = name;
+
+            // Membuat elemen untuk teks komentar
+            var commentText = document.createElement('div');
+            commentText.textContent = comment;
+
+            // Menyusun komentar baru
+            newComment.appendChild(commentAuthor);
+            newComment.appendChild(commentText);
+
+            // Menambahkan komentar ke tampilan komentar
+            commentDisplay.appendChild(newComment);
+
+            // Mengosongkan kotak input setelah komentar dikirim
+            nameBox.value = "";
+            emailBox.value = "";
+            commentBox.value = "";
+        }
+    </script>
+     <a href="#0">Kembali</a>
+
+
+        <!-- Bagian Kontak -->
+        <section id="kontak" class="contact-info section-divider">
+            <h2>Hubungi Saya</h2>
+            <p>Email: <a href="billvabillva@gmail.com">billvabillva@gmail.com</a></p>
+            <p>Instagram: <a href="https://www.instagram.com/appleaur_?igsh=MTMwZDdnOTJ2dGt1ZQ==" target="_blank">@Bilva</a></p>
+        </section>
+        <a href="#0">Kembali</a>
+
+    </div>
+
+    <!-- Bagian Footer -->
+    <footer>
+        <p>Dibuat oleh Bilva Aurellia Mulyadi</p>
+        <p>XI RPL 1</p>
+    </footer>
